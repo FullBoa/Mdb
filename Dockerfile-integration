@@ -1,0 +1,8 @@
+FROM microsoft/dotnet:2.2-sdk-alpine3.8
+
+WORKDIR /app
+ADD . /app/
+
+CMD sleep 10 \
+    && dotnet restore --configfile NuGet.Config \
+    && ls -d *.Tests | xargs -n 1 dotnet test --filter TestCategory=integration

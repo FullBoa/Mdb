@@ -1,0 +1,10 @@
+version: "3"
+services:
+
+  tests:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile-integration
+    restart: "no"
+    volumes:
+      - ./data:/app/data
